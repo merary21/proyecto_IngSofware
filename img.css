@@ -1,0 +1,20 @@
+/* Estilo para el enlace con la clase "back-button" */
+.back-button {
+    display: inline-block;
+    background-color: #3498db; /* Color de fondo */
+    color: #fff; /* Color del texto */
+    padding: 10px 20px; /* Espaciado interno (arriba/abajo y izquierda/derecha) */
+    text-decoration: none; /* Quita el subrayado de los enlaces */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 18px; /* Tamaño del texto */
+}
+
+/* Cambiar el color de fondo cuando el mouse pasa por encima del enlace */
+.back-button:hover {
+    background-color: #2980b9;
+}
+
+/* Cambiar el color de fondo cuando el enlace se presiona/click */
+.back-button:active {
+    background-color: #2070a0;
+}

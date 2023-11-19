@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Contacto</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="mensajeria.css">
+</head>
+<body>
+    <a href="menu.php" class="back-button">Volver Atrás</a>
+
+    </header>
+
+    <div class="content">
+       
+            <div class="contact-form">
+                <h3>Contáctenos</h3>
+                <form action="contacto.php" name="enviar" method="POST">
+                    <p>
+                        <label for="correo">Correo</label>
+                        <input type="email" name="correo">
+                    </p>
+                    <p>
+                        <label for="asunto">Asunto</label>
+                        <input type="text" name="asunto">
+                    </p>
+                    <p class="block">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea name="mensaje" rows="3"></textarea>
+                    </p>
+                    <p>
+                        <button>Enviar</button>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
