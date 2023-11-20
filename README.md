@@ -53,7 +53,7 @@ Versión de macOS: Se recomienda macOS 10.14 (Mojave) o una versión más recien
 Homebrew (opcional): Puede utilizar Homebrew para facilitar la instalación de herramientas y servicios adicionales.
 Acceso de Administrador: Asegúrese de tener acceso de administrador para instalar y configurar componentes del sistema.
 
-Autores:
+## Autores:
 Merary Julissa Araujo Velasquez. 
-## Licencia:
+Licencia:
 Este proyecto está bajo la Licencia Software Freeware - ver el archivo [LICENSE.md](LICENSE.md) para más detalles
