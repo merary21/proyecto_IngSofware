@@ -1,5 +1,5 @@
-# Administracion de citas Medicas 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Administración de Citas Médicas
+
 ## Descripción y contexto del proyecto: 
 
 El sistema de gestión de citas médicas es una aplicación web desarrollada utilizando PHP puro, JavaScript y CSS en el frontend. Esta plataforma está diseñada para facilitar y optimizar el proceso de administración de citas en entornos médicos. Proporciona a los pacientes la capacidad de reservar, cancelar y reprogramar sus citas médicas de manera rápida y eficiente.
