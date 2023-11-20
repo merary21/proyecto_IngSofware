@@ -39,15 +39,19 @@ Requisitos del Sistema:
 Requisitos del Sistema Operativo:
 ### Sistema Operativo:
 Se recomienda utilizar un sistema operativo compatible con PHP y MySQL. Linux (por ejemplo, Ubuntu, CentOS), Windows o macOS.
+
 Espacio en Disco: Asegúrese de tener suficiente espacio en disco para la instalación del sistema operativo y otros componentes.
+
 Requisitos para Linux:
 Distribución Linux: Se recomienda una distribución Linux compatible, como Ubuntu 18.04 LTS o CentOS 7.
 Actualizaciones del Sistema: Asegúrese de que el sistema esté completamente actualizado con las últimas actualizaciones y parches.
 Acceso de Superusuario: Deberá tener acceso de superusuario (root) para instalar y configurar paquetes.
+
 Requisitos para Windows:
 Versión de Windows: Se recomienda Windows 10 o Windows Server (según el entorno de implementación).
 WampServer/XAMPP: Puede utilizar WampServer o XAMPP para facilitar la instalación de Apache, MySQL y PHP en entornos Windows.
 Permisos de Administrador: Asegúrese de tener permisos de administrador para instalar y configurar componentes del sistema.
+
 Requisitos para macOS:
 Versión de macOS: Se recomienda macOS 10.14 (Mojave) o una versión más reciente.
 Homebrew (opcional): Puede utilizar Homebrew para facilitar la instalación de herramientas y servicios adicionales.
