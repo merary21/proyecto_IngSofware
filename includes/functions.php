@@ -144,8 +144,8 @@ function insert_paciente()
     include "db.php";
     extract($_POST);
 
-    $consulta = "INSERT INTO pacientes (nombre, sexo, correo, telefono,  estado)
-    VALUES ('$nombre', '$sexo', '$correo', '$telefono',  '$estado')";
+    $consulta = "INSERT INTO pacientes (nombre, sexo, correo, telefono)
+    VALUES ('$nombre', '$sexo', '$correo', '$telefono')";
     $resultado = mysqli_query($conexion, $consulta);
 
     if ($resultado) {
@@ -166,19 +166,19 @@ function insert_cita()
     include "db.php";
     extract($_POST);
 
-    $consulta = "INSERT INTO citas (fecha, hora, id_paciente, id_doctor , id_especialidad, observacion, estado)
-    VALUES ('$fecha', '$hora', '$id_paciente', '$id_doctor', '$id_especialidad', '$observacion', '$estado')";
+    $consulta = "INSERT INTO citas (fecha, hora, id_doctor , id_especialidad, nombre_paciente)
+    VALUES ('$fecha', '$hora', '$id_doctor', '$id_especialidad', '$nombre_paciente')";
     $resultado = mysqli_query($conexion, $consulta);
 
     if ($resultado) {
         echo "<script language='JavaScript'>
-        alert('El registro fue actualizado correctamente');
-        location.assign('../views/citas.php');
+        alert('La cita fue registrada correctamente');
+        location.assign('../menu.php');
         </script>";
     } else {
         echo "<script language='JavaScript'>
          alert('Uy no! ya valio hablale al ing :v');
-         location.assign('../views/citas.php');
+         location.assign('../menu.php');
          </script>";
     }
 }
@@ -312,8 +312,8 @@ function editar_cita()
 {
     include "db.php";
     extract($_POST);
-    $consulta = "UPDATE citas SET fecha = '$fecha', hora = '$hora', id_paciente = '$id_paciente', id_doctor = '$id_doctor',
-    id_especialidad = '$id_especialidad', observacion = '$observacion' , estado= '$estado' 
+    $consulta = "UPDATE citas SET fecha = '$fecha', hora = '$hora', id_doctor = '$id_doctor',
+    id_especialidad = '$id_especialidad', nombre_paciente = '$nombre_paciente'
     WHERE id = '$id' ";
     $resultado = mysqli_query($conexion, $consulta);
 
