@@ -1,130 +1,86 @@
+<!-- editar_cita.php -->
+
 <?php
+include "../includes/db.php";
 
+// Verificar si se ha enviado el formulario de edición
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $id = $_POST["id"];
+    $fecha = $_POST["fecha"];
+    $hora = $_POST["hora"];
+    $id_doctor = $_POST["id_doctor"];
+    $id_especialidad = $_POST["id_especialidad"];
+    $nombre_paciente = $_POST["nombre_paciente"];
 
-session_start();
-error_reporting(0);
-$varsesion = $_SESSION['nombre'];
+    // Actualizar la cita en la base de datos
+    $consulta = "UPDATE citas SET fecha='$fecha', hora='$hora', id_doctor='$id_doctor', id_especialidad='$id_especialidad', nombre_paciente='$nombre_paciente' WHERE id='$id'";
+    $resultado = mysqli_query($conexion, $consulta);
 
-if ($varsesion == null || $varsesion = '') {
-    header("Location: _sesion/login.php");
+    if ($resultado) {
+        // Redireccionar después de la edición exitosa
+        header("Location: ../views/mis_citas.php");
+        exit();
+    } else {
+        echo "Error al actualizar la cita: " . mysqli_error($conexion);
+    }
 }
 
-include "db.php";
-$id = $_GET['id'];
-$consulta = "SELECT * FROM citas WHERE id = $id";
-$resultado = mysqli_query($conexion, $consulta);
-$usuario = mysqli_fetch_assoc($resultado);
+// Obtener el ID de la cita a editar desde la URL
+$id_cita = $_GET["id"];
+
+// Obtener la información de la cita de la base de datos
+$consulta_cita = "SELECT * FROM citas WHERE id='$id_cita'";
+$resultado_cita = mysqli_query($conexion, $consulta_cita);
+$cita = mysqli_fetch_assoc($resultado_cita);
+
+// Asegurarse de que la cita existe
+if (!$cita) {
+    echo "Cita no encontrada.";
+    exit();
+}
 ?>
-<?php include_once "header.php"; ?>
 
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/MisCitas.css">
+    <script src="../js/jquery.min.js"></script>
+    <a href="../menu.php" class="back-button">Volver Atrás</a>
+    <br> </br>
+</head>
 
-<form action="functions.php" id="form" method="POST">
+<body id="page-top">
 
-    <div class="container">
-        <div id="login-row" class="row justify-content-center align-items-center">
-            <div id="login-column" class="col-md-6">
-                <div id="login-box" class="col-md-12">
+    <div class="container-fluid mt-4">
+        <h2>Editar Cita</h2>
+        <form action="editar_cita.php" method="POST">
+            <input type="hidden" name="id" value="<?php echo $cita['id']; ?>">
+            <label for="fecha">Fecha:</label>
+            <input type="text" name="fecha" value="<?php echo $cita['fecha']; ?>" required>
+            <br>
+            <label for="hora">Hora:</label>
+            <input type="text" name="hora" value="<?php echo $cita['hora']; ?>" required>
+            <br>
+            <label for="id_doctor">ID Doctor:</label>
+            <input type="text" name="id_doctor" value="<?php echo $cita['id_doctor']; ?>" required>
+            <br>
+            <label for="id_especialidad">ID Especialidad:</label>
+            <input type="text" name="id_especialidad" value="<?php echo $cita['id_especialidad']; ?>" required>
+            <br>
+            <label for="nombre_paciente">Nombre Paciente:</label>
+            <input type="text" name="nombre_paciente" value="<?php echo $cita['nombre_paciente']; ?>" required>
+            <br>
+            <button type="submit">Guardar Cambios</button>
+        </form>
+    </div>
 
-                    <h3 class="text-center">Editar Cita del Paciente <?php echo $usuario['paciente']; ?></h3>
-                    <br>
-                    <div class="form-group ">
-                        <label for="fecha" class="form-label">Fecha*</label>
-                        <input type="date" id="fecha" name="fecha" class="form-control" value="<?php echo $usuario['fecha']; ?>" required>
-                    </div>
+</body>
 
-                    <div class="form-group">
-                        <label for="hora" class="form-label">Hora*</label>
-                        <input type="time" id="hora" name="hora" class="form-control" value="<?php echo $usuario['hora']; ?>" required>
-                    </div>
-
-                    <div class="form-group ">
-                        <label>Paciente</label>
-                        <select class="form-control" id="id_paciente" name="id_paciente">
-                            <option <?php echo $usuario['id_paciente'] === 'id_paciente' ? "selected='selected' " : "" ?> value="<?php echo $usuario['id_paciente']; ?>"><?php echo $usuario['id_paciente']; ?> </option>
-                            <?php
-
-                            include("db.php");
-                            //Codigo para mostrar categorias desde otra tabla
-                            $sql = "SELECT * FROM pacientes ";
-                            $resultado = mysqli_query($conexion, $sql);
-                            while ($consulta = mysqli_fetch_array($resultado)) {
-                                echo '<option value="' . $consulta['id'] . '">' . $consulta['nombre'] . '</option>';
-                            }
-
-                            ?>
-
-
-                        </select>
-                    </div>
-
-                    <div class="form-group ">
-                        <label>Doctor</label>
-                        <select class="form-control" id="id_doctor" name="id_doctor">
-                            <option <?php echo $usuario['id_doctor'] === 'id_doctor' ? "selected='selected' " : "" ?> value="<?php echo $usuario['id_doctor']; ?>"><?php echo $usuario['id_doctor']; ?> </option>
-                            <?php
-
-                            include("db.php");
-                            $sql = "SELECT * FROM doctor ";
-                            $resultado = mysqli_query($conexion, $sql);
-                            while ($consulta = mysqli_fetch_array($resultado)) {
-                                echo '<option value="' . $consulta['id'] . '">' . $consulta['nombres'] . '</option>';
-                            }
-
-                            ?>
-
-                        </select>
-                    </div>
-
-
-                    <div class="form-group ">
-                        <label>Especialidad</label>
-                        <select class="form-control" id="id_especialidad" name="id_especialidad">
-                            <option <?php echo $usuario['id_especialidad'] === 'id_especialidad' ? "selected='selected' " : "" ?> value="<?php echo $usuario['id_especialidad']; ?>"><?php echo $usuario['id_especialidad']; ?> </option>
-                            <?php
-
-                            include("db.php");
-                            //Codigo para mostrar categorias desde otra tabla
-                            $sql = "SELECT * FROM especialidades ";
-                            $resultado = mysqli_query($conexion, $sql);
-                            while ($consulta = mysqli_fetch_array($resultado)) {
-                                echo '<option value="' . $consulta['id'] . '">' . $consulta['nombre'] . '</option>';
-                            }
-
-                            ?>
-
-
-                        </select>
-                    </div>
-
-                    <div class="form-group ">
-                        <label for="observacion">Observacion:</label>
-                        <textarea required id="observacion" name="observacion" cols="30" rows="5" class="form-control"><?php echo $usuario['observacion']; ?></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="pendiente" class="form-label">Estado:</label>
-                        <select name="estado" id="estado" class="form-control" required>
-                            <option <?php echo $usuario['estado'] === '2' ? "selected='selected' " : "" ?> value="2">Pendiente</option>
-                            <option <?php echo $usuario['estado'] === '1' ? "selected='selected' " : "" ?> value="1">Atendido</option>
-                        </select>
-                    </div>
-
-                    <input type="hidden" name="accion" value="editar_cita">
-                    <input type="hidden" name="id" value="<?php echo $id; ?>">
-
-                    <br>
-                    <div class="mb-3">
-
-                        <button type="submit" id="form" name="form" class="btn btn-success">Editar</button>
-                        <a href="../views/citas.php" class="btn btn-danger">Cancelar</a>
-
-                    </div>
-
-                </div>
-            </div>
-</form>
-</div>
-</div>
-
-<?php include_once "footer.php"; ?>
+</html>

@@ -1,17 +1,5 @@
-<?php
-session_start();
-error_reporting(0);
-$varsesion = $_SESSION['nombre'];
-
-if ($varsesion == null || $varsesion == '') {
-    header("Location: ../includes/_sesion/login.php");
-    die();
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
     <meta charset="utf-8">
@@ -22,14 +10,15 @@ if ($varsesion == null || $varsesion == '') {
 
     <!-- Enlaces a Bootstrap y tu archivo de estilos CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/estilos.css"> <!-- Asegúrate de ajustar la ruta al archivo CSS correcta -->
     <link rel="stylesheet" href="../css/MisCitas.css"> <!-- Asegúrate de ajustar la ruta al archivo CSS correcta -->
 
     <script src="../js/jquery.min.js"></script>
 
-</head>
+    <a href="../menu.php" class="back-button">Volver Atrás</a>
+    
+<br> </br>
 
-<?php include "../includes/header.php"; ?>
+</head>
 
 <body id="page-top">
 
@@ -42,7 +31,7 @@ if ($varsesion == null || $varsesion == '') {
         ?>
 
         <?php if ($resultado_mostrar) : ?>
-            <h2 class="mb-4">Citas Registradas:</h2>
+            <h2 class="mb-4">Mis Citas:</h2>
             <div class="table-responsive">
                 <table class="table table-bordered">
                     <thead class="thead-dark">
@@ -55,25 +44,25 @@ if ($varsesion == null || $varsesion == '') {
                             <th>Nombre Paciente</th>
                         </tr>
                     </thead>
+                   
                     <tbody>
-                        <?php while ($fila = mysqli_fetch_assoc($resultado_mostrar)) : ?>
-                            <tr>
-                                <td><?php echo $fila['id']; ?></td>
-                                <td><?php echo $fila['fecha']; ?></td>
-                                <td><?php echo $fila['hora']; ?></td>
-                                <td><?php echo $fila['id_doctor']; ?></td>
-                                <td><?php echo $fila['id_especialidad']; ?></td>
-                                <td><?php echo $fila['nombre_paciente']; ?></td>
-                                <td>
-                <a href="../includes/eliminar_cita.php?id=<?php echo $fila['id']; ?>" class="btn-eliminar">Eliminar</a>
+    <?php while ($fila = mysqli_fetch_assoc($resultado_mostrar)) : ?>
+        <tr>
+            <td><?php echo $fila['id']; ?></td>
+            <td><?php echo $fila['fecha']; ?></td>
+            <td><?php echo $fila['hora']; ?></td>
+            <td><?php echo $fila['id_doctor']; ?></td>
+            <td><?php echo $fila['id_especialidad']; ?></td>
+            <td><?php echo $fila['nombre_paciente']; ?></td>
+            <td>
+                <a href="../includes/editar_cita.php?id=<?php echo $fila['id']; ?>" class="btn-editar">Editar</a>
 
             </td>
         </tr>
+    <?php endwhile; ?>
+</tbody>
 
-                        <?php endwhile; ?>
-                    </tbody>
                 </table>
-                
             </div>
         <?php else : ?>
             <p class="alert alert-danger">Error al obtener las citas: <?php echo mysqli_error($conexion); ?></p>
@@ -88,8 +77,6 @@ if ($varsesion == null || $varsesion == '') {
         <script src="../package/jquery-3.6.0.min.js"></script>
 
     </div>
-
-    <?php include "../includes/footer.php"; ?>
 
 </body>
 

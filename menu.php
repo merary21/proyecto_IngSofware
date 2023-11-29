@@ -78,8 +78,7 @@ if(!isset($_SESSION['usuariopaciente'])){
 <div id="menu">
     <a href="cerrar_sesion.php"><button>Cerrar sesión</button></a>
     <a href="./includes/form_citaa.php"><button>Reservación de cita</button></a>
-    <a href="#"><button>Cancelar cita</button></a>
-    <a href="#"><button>Reprogramación de cita</button></a>
+    <a href="./views/mis_citas.php"><button>Mis citas</button></a>
     <a href="contacto.html"><button>Mensajería</button></a>
 </div>
 <br> </br>

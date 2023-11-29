@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="fontawesome-free-5.15.3-web/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="img.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>Inicio</title>
     <style>
         body {
-            background-color: #495DD9; /* Cambia el color de fondo a tu preferencia */
-            margin: 0; /* Elimina el margen predeterminado del body */
-            padding: 0; /* Elimina el relleno predeterminado del body */
+            background-color: #9fa8e6;
+            margin: 0;
+            padding: 0;
         }
 
-        /* Estilos para el botón de ayuda */
         .help-button {
             background-color: #4CAF50;
             color: white;
@@ -23,16 +23,67 @@
             font-size: 16px;
             border-radius: 5px;
         }
+
+        h1 {
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <header class="header">
-         <!-- Agregar enlace de ayuda -->
-         <a href="ayuda.html" class="help-button">AYUDA</a>
+        <!-- Barra de navegación con menú desplegable -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="ayuda.html">AYUDA</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Iniciar</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Otras Opciones
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="includes/_sesion/login.php">Administrador</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
 
-        <a href="index.html" class="back-button">EMPEZAR</a>
-        <a href="includes/_sesion/login.php" class="back-button">ADMINISTRADOR</a>
+        <h1>¡Bienvenido a Citmed!</h1>
+
+        <!-- Carrusel de imágenes -->
+        <div id="myCarousel" class="carousel slide mt-3" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://www.shutterstock.com/image-photo/profile-photo-attractive-family-doc-600nw-1724693776.jpg" class="d-block w-50 mx-auto" alt="Imagen 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://www.shutterstock.com/image-photo/doctor-advertising-your-product-cheerful-600nw-203453800.jpg" class="d-block w-50 mx-auto" alt="Imagen 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://www.shutterstock.com/image-photo/healthcare-medical-staff-concept-portrait-600nw-2281024823.jpg" class="d-block w-50 mx-auto" alt="Imagen 3">
+                </div>
+                <!-- Agrega más elementos según la cantidad de imágenes que tengas -->
+            </div>
+            <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Anterior</span>
+            </a>
+            <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Siguiente</span>
+            </a>
+        </div>
     </header>
+
+    <!-- Incluye los scripts de Bootstrap al final del body -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
-
