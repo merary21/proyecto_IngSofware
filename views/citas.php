@@ -22,8 +22,8 @@ if ($varsesion == null || $varsesion == '') {
 
     <!-- Enlaces a Bootstrap y tu archivo de estilos CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/estilos.css"> <!-- Asegúrate de ajustar la ruta al archivo CSS correcta -->
-    <link rel="stylesheet" href="../css/MisCitas.css"> <!-- Asegúrate de ajustar la ruta al archivo CSS correcta -->
+    <link rel="stylesheet" href="../css/estilos.css"> <!--ruta al archivo CSS -->
+    <link rel="stylesheet" href="../css/MisCitas.css"> <!-- ruta al archivo CSS-->
 
     <script src="../js/jquery.min.js"></script>
 

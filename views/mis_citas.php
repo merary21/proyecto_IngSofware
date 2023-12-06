@@ -55,7 +55,7 @@
             <td><?php echo $fila['id_especialidad']; ?></td>
             <td><?php echo $fila['nombre_paciente']; ?></td>
             <td>
-                <a href="../includes/editar_cita.php?id=<?php echo $fila['id']; ?>" class="btn-editar">Editar</a>
+                <a href="../includes/editar_cita.php?id=<?php echo $fila['id']; ?>" class="btn-editar">Actualizar/reprogramar</a>
 
             </td>
         </tr>
