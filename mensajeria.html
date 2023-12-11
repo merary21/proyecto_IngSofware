@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Inclusión de hojas de estilo y fuentes -->
     <link rel="stylesheet" href="fontawesome-free-5.15.3-web/css/all.min.css">
     <link rel="stylesheet" href="contac.css">
     <title>Contacto</title>
@@ -10,43 +11,59 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 </head>
 <body bgcolor="#FFF">
+    <!-- Encabezado -->
     <header class="header">
+        <!-- Botón para volver atrás -->
         <a href="menu.php" class="back-button">Volver Atrás</a>
     </header>
 
     <div class="content">
+        <!-- Título y subtítulo -->
         <h1 class="logo">Contactenos <span> es un gusto servirle</span></h1>
+
+        <!-- Contenedor principal del formulario y la información de contacto -->
         <div class="contact-wrapper animated bounceInUp">
+            <!-- Formulario de contacto -->
             <div class="contact-form">
                 <h3>Contactenos</h3>
+                <!-- Formulario con método POST y acción "contacto.php" -->
                 <form action="contacto.php" name="enviar" method="POST">
+                    <!-- Campo para ingresar el correo -->
                     <p>
                         <label for="correo">Correo</label>
                         <input type="email" name="correo">
                     </p>
+                    <!-- Campo para ingresar el asunto -->
                     <p>
                         <label for="asunto">Asunto</label>
                         <input type="text" name="asunto">
                     </p>
+                    <!-- Campo para ingresar el mensaje -->
                     <p class="block">
                         <label for="mensaje">Mensaje</label>
                         <textarea name="mensaje" rows="3"></textarea>
                     </p>
+                    <!-- Botón de enviar -->
                     <p>
                         <button>Enviar</button>
                     </p>
                 </form>
             </div>
+
+            <!-- Información de contacto -->
             <div class="contact-info">
                 <h4>Información</h4>
+                <!-- Lista de información con íconos -->
                 <ul>
                     <li><i class="fas fa-map-marker-alt"></i> Ubicación</li>
                     <li><i class="fas fa-phone"></i> <a href="https://wa.me/74082751"> (503) 7408-2751</a></li>
                     <li><i class="fas fa-envelope-open-text"></i> admicitass@gmail.com</li>
                 </ul>
+                <!-- Mensaje adicional -->
                 <p>Contactenos! Será un gusto resolver sus dudas y/o sugerencias</p>
             </div>
         </div>
     </div>
 </body>
 </html>
+

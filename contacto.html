@@ -6,33 +6,40 @@
     <link rel="stylesheet" href="mensajeria.css">
 </head>
 <body>
+    <!-- Botón para volver atrás -->
     <a href="menu.php" class="back-button">Volver Atrás</a>
 
-    </header>
+    <!-- Encabezado (faltó la apertura de la etiqueta 'header') -->
+    <header>
 
     <div class="content">
-       
-            <div class="contact-form">
-                <h3>Contáctenos</h3>
-                <form action="contacto.php" name="enviar" method="POST">
-                    <p>
-                        <label for="correo">Correo</label>
-                        <input type="email" name="correo">
-                    </p>
-                    <p>
-                        <label for="asunto">Asunto</label>
-                        <input type="text" name="asunto">
-                    </p>
-                    <p class="block">
-                        <label for="mensaje">Mensaje</label>
-                        <textarea name="mensaje" rows="3"></textarea>
-                    </p>
-                    <p>
-                        <button>Enviar</button>
-                    </p>
-                </form>
-            </div>
+        <!-- Formulario de contacto -->
+        <div class="contact-form">
+            <h3>Contáctenos</h3>
+            <!-- Formulario de contacto con método POST y acción "contacto.php" -->
+            <form action="contacto.php" name="enviar" method="POST">
+                <!-- Campo para ingresar el correo -->
+                <p>
+                    <label for="correo">Correo</label>
+                    <input type="email" name="correo">
+                </p>
+                <!-- Campo para ingresar el asunto -->
+                <p>
+                    <label for="asunto">Asunto</label>
+                    <input type="text" name="asunto">
+                </p>
+                <!-- Campo para ingresar el mensaje -->
+                <p class="block">
+                    <label for="mensaje">Mensaje</label>
+                    <textarea name="mensaje" rows="3"></textarea>
+                </p>
+                <!-- Botón de enviar -->
+                <p>
+                    <button>Enviar</button>
+                </p>
+            </form>
         </div>
     </div>
+
 </body>
 </html>

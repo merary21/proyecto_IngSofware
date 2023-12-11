@@ -52,6 +52,64 @@ if (!$cita) {
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/MisCitas.css">
     <script src="../js/jquery.min.js"></script>
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        .back-button {
+            display: inline-block;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  margin-top: 20px;
+  cursor: pointer;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+    
     <a href="../menu.php" class="back-button">Volver Atrás</a>
     <br> </br>
 </head>
@@ -67,12 +125,6 @@ if (!$cita) {
             <br>
             <label for="hora">Hora:</label>
             <input type="text" name="hora" value="<?php echo $cita['hora']; ?>" required>
-            <br>
-            <label for="id_doctor">ID Doctor:</label>
-            <input type="text" name="id_doctor" value="<?php echo $cita['id_doctor']; ?>" required>
-            <br>
-            <label for="id_especialidad">ID Especialidad:</label>
-            <input type="text" name="id_especialidad" value="<?php echo $cita['id_especialidad']; ?>" required>
             <br>
             <label for="nombre_paciente">Nombre Paciente:</label>
             <input type="text" name="nombre_paciente" value="<?php echo $cita['nombre_paciente']; ?>" required>

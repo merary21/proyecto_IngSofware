@@ -39,8 +39,6 @@
                             <th>ID</th>
                             <th>Fecha</th>
                             <th>Hora</th>
-                            <th>ID Doctor</th>
-                            <th>ID Especialidad</th>
                             <th>Nombre Paciente</th>
                         </tr>
                     </thead>
@@ -51,8 +49,6 @@
             <td><?php echo $fila['id']; ?></td>
             <td><?php echo $fila['fecha']; ?></td>
             <td><?php echo $fila['hora']; ?></td>
-            <td><?php echo $fila['id_doctor']; ?></td>
-            <td><?php echo $fila['id_especialidad']; ?></td>
             <td><?php echo $fila['nombre_paciente']; ?></td>
             <td>
                 <a href="../includes/editar_cita.php?id=<?php echo $fila['id']; ?>" class="btn-editar">Actualizar/reprogramar</a>

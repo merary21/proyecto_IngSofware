@@ -189,14 +189,13 @@ if ($actualsesion == null || $actualsesion == '') {
                     
                     <?php include "fecha.php"; ?>
 
-                    <center>
-                        <h8 class="ml-auto"><strong><b><?php echo fecha(); ?></h8></strong></b>
+<center>
+    <h8 class="ml-auto"><strong><b><?php echo fecha(); ?></b></strong></h8>
 
-                        <div class="reloj">
-                            <h6><span id="tiempo">00 : 00 : 00</span></h6>
-                        </div>
-
-                    </center>
+    <div class="reloj">
+        <h6><span id="tiempo"><?php echo hora(); ?></span></h6>
+    </div>
+</center>
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
